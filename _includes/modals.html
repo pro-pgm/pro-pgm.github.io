@@ -15,7 +15,35 @@
           <div class="modal-body">
             <h2>{{ post.title }}</h2>
             <hr class="star-primary">
+            {% if post.images %}
+            <div id="carousel-{{ post.modal-id }}" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                {% for image in post.images %}
+                <li data-target="#carousel-{{ post.modal-id }}" data-slide-to="{{ forloop.index0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                {% endfor %}
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                {% for image in post.images %}
+                <div class="item {% if forloop.first %}active{% endif %}">
+                  <img src="img/portfolio/{{ image }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+                </div>
+                {% endfor %}
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-{{ post.modal-id }}" role="button" data-slide="prev">
+                <span class="fa fa-chevron-left"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-{{ post.modal-id }}" role="button" data-slide="next">
+                <span class="fa fa-chevron-right"></span>
+              </a>
+            </div>
+            {% else %}
             <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+            {% endif %}
             {% if post.description %}
             <p>{{ post.description }}</p>
             {% endif %}

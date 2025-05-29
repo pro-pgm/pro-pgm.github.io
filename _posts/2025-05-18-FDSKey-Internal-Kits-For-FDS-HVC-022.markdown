@@ -2,7 +2,10 @@
 layout: default
 modal-id: 1
 date: 2025-05-18
-img: fds_internal_kits.png
+images:
+  - fds_internal_kits.png
+  - fds_internal_kits_red.webp
+  - fds_internal_kits_running.webp
 alt: image-alt
 project-date: May 2024
 client: PROPGM

@@ -482,3 +482,77 @@ footer .footer-below {
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
 }
+
+/* Fixed height carousel */
+.carousel {
+    margin-bottom: 30px;
+    height: 400px; /* 设置固定高度，可以根据需要调整 */
+}
+
+.carousel .carousel-inner {
+    height: 100%;
+}
+
+.carousel .item {
+    height: 100%;
+    padding: 0 15px;
+}
+
+.carousel .item img {
+    max-height: 100%;
+    margin: 0 auto;
+    object-fit: contain; /* 保持图片比例，完整显示在固定区域内 */
+    width: auto;
+}
+
+@media(max-width: 768px) {
+    .carousel {
+        height: 300px; /* 移动设备上使用更小的高度 */
+    }
+}
+
+@media(min-width: 992px) {
+    .carousel {
+        height: 550px; /* 大屏幕上使用更大的高度 */
+    }
+}
+
+/* Carousel Controls */
+.carousel-control {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    top: 0;
+    opacity: 0.8;
+    background: none !important; /* 移除默认背景 */
+}
+
+.carousel-control .fa {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #fff;
+}
+
+.carousel-control.left {
+    left: 0;
+}
+
+.carousel-control.right {
+    right: 0;
+}
+
+.carousel-control.left .fa {
+    left: 25px; /* 调整左箭头位置 */
+}
+
+.carousel-control.right .fa {
+    right: 25px; /* 调整右箭头位置 */
+}
+
+/* 优化箭头可点击区域 */
+.carousel-control:hover {
+    opacity: 1;
+    background: rgba(0,0,0,0.1) !important;
+}
