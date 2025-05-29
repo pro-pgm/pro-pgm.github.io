@@ -3,6 +3,25 @@ Freelancer Jekyll theme
 
 Jekyll theme based on [Freelancer bootstrap theme ](http://startbootstrap.com/template-overviews/freelancer/)
 
+## Local Development
+
+1. Install Ruby and Jekyll if you haven't already:
+```sh
+gem install jekyll bundler
+```
+
+2. Install dependencies:
+```sh
+bundle install
+```
+
+3. Run the local server:
+```sh
+bundle exec jekyll serve
+```
+
+4. View your site at http://localhost:4000
+
 ## How to use
  - Place a image in `/img/portfolio/`
  - Replace `your-email@domain.com` in `_config.yml` with your email address. Refer to [formspree](http://formspree.io/) for more information.
