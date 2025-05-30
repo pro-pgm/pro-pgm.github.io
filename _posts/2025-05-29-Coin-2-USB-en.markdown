@@ -1,0 +1,19 @@
+---
+layout: post
+title: Coin-2-USB
+date: 2025-05-29
+modal-id: 2
+images:
+  - coin2usb_family.webp
+  - coin2usb_body.jpg
+alt: Coin-2-USB
+permalink: /posts/Coin-2-USB
+category: Hardware
+description: Coin-2-USB is a coin cell battery holder that can be used as a USB power source. It is designed to be compact and easy to use.
+translation: /posts/Coin-2-USB-zh
+---
+
+<div class="project-description">
+    <p>Coin-2-USB is a coin cell battery holder that can be used as a USB power source. It is designed to be compact and easy to use.</p>
+    <a href="#" class="detail-link" data-page="/details/coin2usb-manual-en">View User Manual</a>
+</div>

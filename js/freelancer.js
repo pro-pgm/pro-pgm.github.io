@@ -35,3 +35,42 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+// Initialize Masonry
+$(window).on('load', function() {
+    var $grid = $('.masonry-grid');
+    
+    if (typeof Masonry !== 'undefined' && $grid.length) {
+        // First initialize Masonry
+        var msnry = new Masonry('.masonry-grid', {
+            itemSelector: '.masonry-item',
+            columnWidth: '.masonry-item',
+            percentPosition: true,
+            gutter: 30,
+            fitWidth: false,
+            transitionDuration: 0,
+            initLayout: false
+        });
+
+        // Then handle images loading
+        var $items = $grid.find('.masonry-item');
+        $items.find('img').each(function() {
+            var img = this;
+            if (img.complete) {
+                msnry.layout();
+            } else {
+                img.addEventListener('load', function() {
+                    msnry.layout();
+                });
+            }
+        });
+
+        // Re-layout Masonry when window is resized
+        $(window).on('resize', function() {
+            msnry.layout();
+        });
+
+        // Initial layout
+        msnry.layout();
+    }
+});

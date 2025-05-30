@@ -1,0 +1,61 @@
+---
+---
+
+.post-content {
+    padding: 20px;
+    text-align: left;
+
+    h1 {
+        color: #2C3E50;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #2C3E50;
+        margin: 20px 0 10px;
+    }
+
+    ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 15px 0;
+    }
+}
+
+.markdown-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.post-header {
+    padding: 20px;
+    text-align: right;
+}
+
+/* 语言切换按钮样式 */
+.lang-switch {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #{{ site.color.primary }};
+    color: white !important;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 0 10px;
+    border: 2px solid #{{ site.color.primary }};
+}
+
+.lang-switch:hover {
+    background-color: white;
+    color: #{{ site.color.primary }} !important;
+    text-decoration: none;
+}

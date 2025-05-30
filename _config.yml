@@ -2,10 +2,17 @@
 title: PROPGM
 email: propgm.com@gmail.com
 url: https://propgm.com/
+baseurl: ""
 description: "PROPGM is a concise and catchy name for a professional program. It combines the words 'Pro' (short for professional) and 'Pgm' (an abbreviation for program), which gives it a modern and tech-oriented feel. The name implies a focus on professional-grade software or solutions."
 keywords: "iOS, Swift, Javascript, Open source, Hardware"
 skills: "Software Developer - Hardware Maker"
 meta_author: PROPGM
+
+# Language settings
+default_lang: "en"
+languages: 
+  - en
+  - zh
 
 # Google webmaster tools
 google_verify:
@@ -14,7 +21,7 @@ google_verify:
 bing_verify:
 
 # Contact form:
-# - static : pass through formspree.io to validate email sending
+# - static : pass through formspree.io to validate email sending
 # - disqus : replace contact form by disqus thread
 # - comment the line below if you want to stick with the default PHP contact form
 contact: static
@@ -68,4 +75,32 @@ defaults:
       path: ""
       type: "posts"
     values:
-      permalink: ""
+      permalink: /posts/:title
+      layout: "post"
+      lang: en  # Remove quotes
+  - scope:
+      path: "_posts/*-zh.*"
+    values:
+      permalink: /posts/:title
+      layout: "post"
+      lang: zh  # Remove quotes
+  - scope:
+      path: "_details"
+      type: "details"
+    values:
+      layout: "post"
+      lang: en  # Remove quotes
+  - scope:
+      path: "_details/*-zh.*"
+      type: "details"
+    values:
+      layout: "post"
+      lang: zh  # Remove quotes
+
+include: 
+  - _posts
+
+collections:
+  details:
+    output: true
+    permalink: /details/:path

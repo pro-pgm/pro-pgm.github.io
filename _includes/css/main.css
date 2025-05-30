@@ -49,7 +49,7 @@ hr.star-primary {
 
 hr.star-light:after,
 hr.star-primary:after {
-    content: "\f005";
+    /* content: "\f005"; */
     display: inline-block;
     position: relative;
     top: -.8em;
@@ -441,10 +441,55 @@ footer .footer-below {
     position: absolute;
     top: 25px;
     right: 25px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
+    z-index: 1060;
+}
+
+.portfolio-modal .close-modal .lr {
+    height: 50px;
+    width: 3px;
+    margin-left: 25px;
+    background-color: #{{ site.color.secondary }};
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    z-index: 1061;
+}
+
+.portfolio-modal .close-modal .lr .rl {
+    height: 50px;
+    width: 3px;
+    background-color: #{{ site.color.secondary }};
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    z-index: 1062;
+}
+
+.portfolio-modal .close-modal:hover .lr,
+.portfolio-modal .close-modal:hover .lr .rl {
+    background-color: #{{ site.color.primary }};
+}
+
+.portfolio-modal .btn-close {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #{{ site.color.primary }};
+    border-radius: 3px;
+    border: 2px solid #{{ site.color.primary }};
+}
+
+.portfolio-modal .btn-close:hover {
+    background-color: #fff;
+    color: #{{ site.color.primary }};
+}
+
+.portfolio-modal .btn-close i {
+    margin-right: 10px;
 }
 
 .portfolio-modal .close-modal:hover {
@@ -555,4 +600,164 @@ footer .footer-below {
 .carousel-control:hover {
     opacity: 1;
     background: rgba(0,0,0,0.1) !important;
+}
+
+/* Project description markdown styles */
+.project-description {
+    margin: 20px 0;
+    text-align: left;  /* 确保文本左对齐 */
+}
+
+.project-description h2,
+.project-description h3 {
+    text-align: left;
+    color: #{{ site.color.secondary }};
+}
+
+.project-description ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    text-align: left;
+    list-style-type: disc;
+}
+
+.project-description li {
+    text-align: left;
+}
+
+.project-description p {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.project-description img {
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto;
+    display: block;  /* 图片居中显示 */
+}
+
+/* Detail Modal Styles */
+.detail-modal .modal-content {
+    padding: 20px;
+}
+
+.detail-modal .markdown-content {
+    text-align: left;
+}
+
+.detail-modal .markdown-content h1,
+.detail-modal .markdown-content h2,
+.detail-modal .markdown-content h3 {
+    color: #{{ site.color.secondary }};
+    margin: 20px 0 10px;
+}
+
+.detail-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #{{ site.color.primary }};
+}
+
+/* Nested Modal Styles */
+.portfolio-modal {
+    overflow-y: auto !important;
+}
+
+.detail-modal {
+    z-index: 2060 !important;
+}
+
+.detail-modal .modal-dialog {
+    margin: 30px auto;
+    max-width: 90%;
+    width: auto;
+}
+
+.detail-modal .modal-content {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.modal-backdrop.detail-backdrop {
+    z-index: 2050 !important;
+}
+
+.detail-modal .modal-header .close {
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    color: #{{ site.color.secondary }};
+    opacity: 1;
+    text-shadow: none;
+    padding: 0;
+    margin: -10px -10px -10px auto;
+    width: 40px;
+    height: 40px;
+}
+
+.detail-modal .modal-header .close:hover {
+    color: #{{ site.color.primary }};
+    opacity: 1;
+}
+
+.detail-modal .modal-header {
+    padding: 15px;
+    border-bottom: none;
+}
+
+/* Masonry Grid Styles */
+.masonry-grid {
+    margin: 0 auto;
+}
+
+.masonry-item {
+    width: calc(33.333% - 20px); /* 三列布局 */
+    margin-bottom: 30px;
+}
+
+.portfolio-item {
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .masonry-item {
+        width: calc(50% - 20px); /* 平板设备两列 */
+    }
+}
+
+@media (max-width: 767px) {
+    .masonry-item {
+        width: 100%; /* 移动设备单列 */
+    }
+}
+
+/* Project Links */
+.project-links {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.project-links a {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #{{ site.color.primary }};
+    border-radius: 4px;
+    border: 2px solid #{{ site.color.primary }};
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+    background-color: #fff;
+    color: #{{ site.color.primary }};
+    text-decoration: none;
 }

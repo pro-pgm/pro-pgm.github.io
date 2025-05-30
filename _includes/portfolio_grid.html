@@ -7,22 +7,31 @@
                 <hr class="star-primary">
             </div>
         </div>
-        <div class="row">
-            {% for post in site.posts %}
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
+        <div class="row masonry-grid">
+            {% assign default_lang = site.default_lang %}
+            {% assign shown_modals = "" | split: "" %}
+            {% assign all_posts = site.posts | where: "lang", default_lang | sort: 'date' | reverse %}
+            
+            {% for post in all_posts %}
+                {% if post.modal-id %}
+                    {% unless shown_modals contains post.modal-id %}
+                        {% assign shown_modals = shown_modals | push: post.modal-id %}
+                        <div class="masonry-item col-sm-4 portfolio-item">
+                            <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
+                                <div class="caption">
+                                    <div class="caption-content">
+                                        <i class="fa fa-search-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                {% if post.images %}
+                                    <img src="img/portfolio/{{ post.images[0] }}" class="img-responsive" alt="{{ post.alt }}">
+                                {% else %}
+                                    <img src="img/portfolio/{{ post.img }}" class="img-responsive" alt="{{ post.alt }}">
+                                {% endif %}
+                            </a>
                         </div>
-                    </div>
-                    {% if post.images %}
-                        <img src="img/portfolio/{{ post.images[0] }}" class="img-responsive" alt="{{ post.alt }}">
-                    {% else %}
-                        <img src="img/portfolio/{{ post.img }}" class="img-responsive" alt="{{ post.alt }}">
-                    {% endif %}
-                </a>
-            </div>
+                    {% endunless %}
+                {% endif %}
             {% endfor %}
         </div>
     </div>

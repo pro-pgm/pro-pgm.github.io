@@ -1,0 +1,227 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 20px;
+    background-color: #f8f9fa;
+}
+
+.post-header {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    text-align: left;
+}
+
+.header-right {
+    text-align: right;
+}
+
+.back-home {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #80B3FF;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #80B3FF;
+    border-radius: 4px;
+}
+
+.back-home:hover {
+    background-color: #80B3FF;
+    color: #fff;
+    text-decoration: none;
+}
+
+.back-home i {
+    margin-right: 5px;
+}
+
+.post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.post-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.post-content h2 {
+    font-size: 2em;
+    margin: 30px 0 15px;
+    color: #2c3e50;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.lang-switch {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #80B3FF;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.lang-switch:hover {
+    background-color: #fff;
+    color: #80B3FF;
+    text-decoration: none;
+    border: 1px solid #80B3FF;
+}
+
+.project-links {
+    margin: 20px 0;
+}
+
+.project-links a {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #80B3FF;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.project-links a:hover {
+    background-color: #fff;
+    color: #80B3FF;
+    text-decoration: none;
+    border: 1px solid #80B3FF;
+}
+
+.item-details {
+    margin: 30px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.item-details li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.item-details strong {
+    color: #2c3e50;
+}
+
+.carousel {
+    margin-bottom: 30px;
+    height: 400px;
+}
+
+.carousel .carousel-inner {
+    height: 100%;
+}
+
+.carousel .item {
+    height: 100%;
+    padding: 0 15px;
+}
+
+.carousel .item img {
+    max-height: 100%;
+    margin: 0 auto;
+    object-fit: contain;
+    width: auto;
+}
+
+.carousel-control {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    top: 0;
+    opacity: 0.8;
+    background: none !important;
+}
+
+.carousel-control .fa {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #fff;
+}
+
+.carousel-control.left {
+    left: 0;
+}
+
+.carousel-control.right {
+    right: 0;
+}
+
+.carousel-control.left .fa {
+    left: 25px;
+}
+
+.carousel-control.right .fa {
+    right: 25px;
+}
+
+.carousel-control:hover {
+    opacity: 1;
+    background: rgba(0,0,0,0.1) !important;
+}
+
+.project-description {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.project-description h2,
+.project-description h3 {
+    text-align: left;
+    color: #2c3e50;
+}
+
+.project-description ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    text-align: left;
+    list-style-type: disc;
+}
+
+.project-description li {
+    text-align: left;
+}
+
+.project-description p {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.project-description img {
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto;
+    display: block;
+} 

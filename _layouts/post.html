@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.meta_author }}">
+    <meta name="keywords" content="{{ site.keywords }}">
+    <title>{{ page.title }} - {{ site.title }}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ site.baseurl }}/css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="{{ site.baseurl }}/css/post.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="post-header">
+            <div class="header-left">
+                <a href="{{ site.baseurl }}/" class="back-home">
+                    <i class="fa fa-home"></i> Home
+                </a>
+            </div>
+            <div class="header-right">
+                {% if page.lang == 'zh' and page.original %}
+                    <a href="{{ page.original }}" class="lang-switch">English Version</a>
+                {% endif %}
+                {% if page.lang == 'en' and page.translation %}
+                    <a href="{{ page.translation }}" class="lang-switch">中文版</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="post-content">
+            {% assign title = page.title | replace: "-en", "" | replace: "-zh", "" %}
+            <h2>{{ title }}</h2>
+            <hr class="star-primary">
+            {% if page.images %}
+            <div id="carousel-{{ page.modal-id }}" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    {% for image in page.images %}
+                    <li data-target="#carousel-{{ page.modal-id }}" data-slide-to="{{ forloop.index0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                    {% endfor %}
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    {% for image in page.images %}
+                    <div class="item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ site.baseurl }}/img/portfolio/{{ image }}" class="img-responsive img-centered" alt="{{ page.alt }}">
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-{{ page.modal-id }}" role="button" data-slide="prev">
+                    <span class="fa fa-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-{{ page.modal-id }}" role="button" data-slide="next">
+                    <span class="fa fa-chevron-right"></span>
+                </a>
+            </div>
+            {% endif %}
+
+            {% if page.description %}
+            <div class="project-description">
+                {{ page.description | markdownify }}
+            </div>
+            {% endif %}
+
+            <ul class="list-inline item-details">
+                {% if page.client %}
+                <li>Client:
+                    <strong>{{ page.client }}</strong>
+                </li>
+                {% endif %}
+                {% if page.project-date %}
+                <li>Date:
+                    <strong>{{ page.project-date }}</strong>
+                </li>
+                {% endif %}
+                {% if page.category %}
+                <li>Service:
+                    <strong>{{ page.category }}</strong>
+                </li>
+                {% endif %}
+            </ul>
+
+            {{ content }}
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{{ site.baseurl }}/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
+
+    <!-- Detail Modal JavaScript -->
+    <script src="{{ site.baseurl }}/js/detail-modal.js"></script>
+</body>
+</html>
