@@ -73,6 +73,10 @@
                 {% if post.translation %}
                 <a href="{{ post.translation }}" class="lang-switch">中文版本</a>
                 {% endif %}
+                <a href="{{ post.url | absolute_url }}" class="view-full-post" target="_blank">View Full Post</a>
+                <button class="share-btn" onclick="copyModalLink('{{ post.url | absolute_url }}')">
+                  <i class="fa fa-share-alt"></i> Share
+                </button>
               </div>
             </div>
           </div>

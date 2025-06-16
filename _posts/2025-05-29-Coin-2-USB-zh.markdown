@@ -11,7 +11,7 @@ project-date: 2024年4月
 client: PROPGM
 category: 硬件
 lang: zh
-original: /posts/2025-05-29-Coin-2-USB-en
+original: /posts/Coin-2-USB
 description: |
   coin2usb 是一款将投币信号转换为 USB 键盘按键输出的智能适配器，适用于投币娱乐设备、倒计时控制等场景。设备支持投币累计、倒计时、按键自定义、系统信息显示等多种功能，操作简便，显示直观。
 

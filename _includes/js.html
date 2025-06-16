@@ -31,3 +31,77 @@
 <!-- Disqus Stuff -->
 {% include js_disqus.html %}
 {% endif %}
+
+<!-- Share Functionality for Modals -->
+<script>
+function copyModalLink(url) {
+    // Try to use the modern clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(function() {
+            showModalToast('Link copied to clipboard!');
+        }).catch(function(err) {
+            console.error('Failed to copy: ', err);
+            fallbackCopyModalTextToClipboard(url);
+        });
+    } else {
+        // Fallback for older browsers
+        fallbackCopyModalTextToClipboard(url);
+    }
+}
+
+function fallbackCopyModalTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.opacity = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showModalToast('Link copied to clipboard!');
+        } else {
+            showModalToast('Failed to copy link', 'error');
+        }
+    } catch (err) {
+        console.error('Fallback: Could not copy text: ', err);
+        showModalToast('Failed to copy link', 'error');
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showModalToast(message, type = 'success') {
+    // Create toast element if it doesn't exist
+    let toast = document.getElementById('modal-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'modal-toast';
+        toast.className = 'toast';
+        toast.innerHTML = '<i class="fa fa-check-circle"></i><span class="toast-message"></span>';
+        document.body.appendChild(toast);
+    }
+    
+    const toastMessage = toast.querySelector('.toast-message');
+    const toastIcon = toast.querySelector('i');
+    
+    toastMessage.textContent = message;
+    
+    // Update icon based on type
+    if (type === 'error') {
+        toastIcon.className = 'fa fa-exclamation-circle';
+    } else {
+        toastIcon.className = 'fa fa-check-circle';
+    }
+    
+    toast.className = 'toast ' + type + ' show';
+    
+    setTimeout(function() {
+        toast.className = 'toast ' + type;
+    }, 3000);
+}
+</script>

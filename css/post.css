@@ -224,4 +224,88 @@ body {
     height: auto;
     margin: 15px auto;
     display: block;
+}
+
+/* Share Button Styles */
+.share-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #80B3FF;
+    background: transparent;
+    border: 1px solid #80B3FF;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.share-btn:hover {
+    background-color: #80B3FF;
+    color: #fff;
+}
+
+.share-btn i {
+    margin-right: 5px;
+}
+
+/* Toast Notification Styles */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast.error {
+    background-color: #dc3545;
+}
+
+.toast i {
+    font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .post-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .header-left, .header-right {
+        text-align: center;
+    }
+    
+    .share-btn {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    .toast {
+        right: 10px;
+        left: 10px;
+        transform: translateY(-100%);
+    }
+    
+    .toast.show {
+        transform: translateY(0);
+    }
 } 

@@ -33,6 +33,9 @@
                 {% if page.lang == 'en' and page.translation %}
                     <a href="{{ page.translation }}" class="lang-switch">中文版</a>
                 {% endif %}
+                <button id="shareBtn" class="share-btn" onclick="copyToClipboard()">
+                    <i class="fa fa-share-alt"></i> Share
+                </button>
             </div>
         </div>
         <div class="post-content">
@@ -103,5 +106,69 @@
 
     <!-- Detail Modal JavaScript -->
     <script src="{{ site.baseurl }}/js/detail-modal.js"></script>
+    
+    <!-- Copy to Clipboard Toast -->
+    <div id="toast" class="toast">
+        <i class="fa fa-check-circle"></i>
+        <span id="toast-message">Link copied to clipboard!</span>
+    </div>
+    
+    <!-- Share Functionality -->
+    <script>
+        function copyToClipboard() {
+            const url = window.location.href;
+            
+            // Try to use the modern clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(url).then(function() {
+                    showToast('Link copied to clipboard!');
+                }).catch(function(err) {
+                    console.error('Failed to copy: ', err);
+                    fallbackCopyTextToClipboard(url);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyTextToClipboard(url);
+            }
+        }
+        
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast('Link copied to clipboard!');
+                } else {
+                    showToast('Failed to copy link', 'error');
+                }
+            } catch (err) {
+                console.error('Fallback: Could not copy text: ', err);
+                showToast('Failed to copy link', 'error');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.className = 'toast ' + type + ' show';
+            
+            setTimeout(function() {
+                toast.className = 'toast ' + type;
+            }, 3000);
+        }
+    </script>
 </body>
 </html>

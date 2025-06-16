@@ -761,3 +761,96 @@ footer .footer-below {
     color: #{{ site.color.primary }};
     text-decoration: none;
 }
+
+/* Share Button Styles for Portfolio Modals */
+.project-links .share-btn {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 16px;
+    color: #80B3FF;
+    background: transparent;
+    border: 1px solid #80B3FF;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.project-links .share-btn:hover {
+    background-color: #80B3FF;
+    color: #fff;
+}
+
+.project-links .share-btn i {
+    margin-right: 5px;
+}
+
+/* View Full Post Button Styles */
+.project-links .view-full-post {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #80B3FF;
+    border-radius: 4px;
+    border: 2px solid #80B3FF;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.project-links .view-full-post:hover {
+    background-color: #fff;
+    color: #80B3FF;
+    text-decoration: none;
+}
+
+/* Toast Notification Styles */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast.error {
+    background-color: #dc3545;
+}
+
+.toast i {
+    font-size: 16px;
+}
+
+.toast .toast-message {
+    margin-left: 5px;
+}
+
+/* Mobile responsiveness for toast */
+@media (max-width: 768px) {
+    .toast {
+        right: 10px;
+        left: 10px;
+        transform: translateY(-100%);
+    }
+    
+    .toast.show {
+        transform: translateY(0);
+    }
+}

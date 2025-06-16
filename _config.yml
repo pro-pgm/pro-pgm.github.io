@@ -97,8 +97,9 @@ defaults:
       layout: "post"
       lang: zh  # Remove quotes
 
-include: 
-  - _posts
+# Posts are handled automatically by Jekyll
+# include: 
+#   - _posts
 
 collections:
   details:
